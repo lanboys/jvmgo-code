@@ -1,6 +1,6 @@
 package heap
 
-import "jvmgo/ch09/classfile"
+import "jvmgo/ch10/classfile"
 
 type ClassRef struct {
 	SymRef

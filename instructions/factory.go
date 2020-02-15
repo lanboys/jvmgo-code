@@ -1,18 +1,18 @@
 package instructions
 
 import "fmt"
-import "jvmgo/ch09/instructions/base"
-import . "jvmgo/ch09/instructions/comparisons"
-import . "jvmgo/ch09/instructions/constants"
-import . "jvmgo/ch09/instructions/control"
-import . "jvmgo/ch09/instructions/conversions"
-import . "jvmgo/ch09/instructions/extended"
-import . "jvmgo/ch09/instructions/loads"
-import . "jvmgo/ch09/instructions/math"
-import . "jvmgo/ch09/instructions/references"
-import . "jvmgo/ch09/instructions/reserved"
-import . "jvmgo/ch09/instructions/stack"
-import . "jvmgo/ch09/instructions/stores"
+import "jvmgo/ch10/instructions/base"
+import . "jvmgo/ch10/instructions/comparisons"
+import . "jvmgo/ch10/instructions/constants"
+import . "jvmgo/ch10/instructions/control"
+import . "jvmgo/ch10/instructions/conversions"
+import . "jvmgo/ch10/instructions/extended"
+import . "jvmgo/ch10/instructions/loads"
+import . "jvmgo/ch10/instructions/math"
+import . "jvmgo/ch10/instructions/references"
+import . "jvmgo/ch10/instructions/reserved"
+import . "jvmgo/ch10/instructions/stack"
+import . "jvmgo/ch10/instructions/stores"
 
 // NoOperandsInstruction singletons
 var (
@@ -160,7 +160,7 @@ var (
 	areturn     = &ARETURN{}
 	_return     = &RETURN{}
 	arraylength = &ARRAY_LENGTH{}
-	// athrow        = &ATHROW{}
+	athrow      = &ATHROW{}
 	// monitorenter  = &MONITOR_ENTER{}
 	// monitorexit   = &MONITOR_EXIT{}
 	invoke_native = &INVOKE_NATIVE{}
@@ -550,8 +550,8 @@ func NewInstruction(opcode byte) base.Instruction {
 		return &ANEW_ARRAY{}
 	case 0xbe:
 		return arraylength
-	// case 0xbf:
-	// 	return athrow
+	case 0xbf:
+		return athrow
 	case 0xc0:
 		return &CHECK_CAST{}
 	case 0xc1:

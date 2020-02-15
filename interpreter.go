@@ -1,10 +1,10 @@
 package main
 
 import "fmt"
-import "jvmgo/ch08/instructions"
-import "jvmgo/ch08/instructions/base"
-import "jvmgo/ch08/rtda"
-import "jvmgo/ch08/rtda/heap"
+import "jvmgo/ch10/instructions"
+import "jvmgo/ch10/instructions/base"
+import "jvmgo/ch10/rtda"
+import "jvmgo/ch10/rtda/heap"
 
 func interpret(method *heap.Method, logInst bool, args []string) {
 	thread := rtda.NewThread()
@@ -74,7 +74,8 @@ func logFrames(thread *rtda.Thread) {
 		frame := thread.PopFrame()
 		method := frame.Method()
 		className := method.Class().Name()
-		fmt.Printf(">> pc:%4d %v.%v%v \n",
-			frame.NextPC(), className, method.Name(), method.Descriptor())
+		lineNum := method.GetLineNumber(frame.NextPC())
+		fmt.Printf(">> line:%4d pc:%4d %v.%v%v \n",
+			lineNum, frame.NextPC(), className, method.Name(), method.Descriptor())
 	}
 }

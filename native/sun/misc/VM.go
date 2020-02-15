@@ -1,9 +1,9 @@
 package misc
 
-import "jvmgo/ch09/instructions/base"
-import "jvmgo/ch09/native"
-import "jvmgo/ch09/rtda"
-import "jvmgo/ch09/rtda/heap"
+import "jvmgo/ch10/instructions/base"
+import "jvmgo/ch10/native"
+import "jvmgo/ch10/rtda"
+import "jvmgo/ch10/rtda/heap"
 
 func init() {
 	native.Register("sun/misc/VM", "initialize", "()V", initialize)
@@ -11,7 +11,7 @@ func init() {
 
 // private static native void initialize();
 // ()V
-func initialize(frame *rtda.Frame) { // hack: just make VM.savedProps nonempty
+func initialize(frame *rtda.Frame) { // hack!
 	vmClass := frame.Method().Class()
 	savedProps := vmClass.GetRefVar("savedProps", "Ljava/util/Properties;")
 	key := heap.JString(vmClass.Loader(), "foo")

@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 import "strings"
-import "jvmgo/ch08/classpath"
-import "jvmgo/ch08/rtda/heap"
+import "jvmgo/ch10/classpath"
+import "jvmgo/ch10/rtda/heap"
 
 func main() {
 	cmd := parseCmd()
