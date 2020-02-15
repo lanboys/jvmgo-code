@@ -1,7 +1,7 @@
 package conversions
 
-import "jvmgo/ch10/instructions/base"
-import "jvmgo/ch10/rtda"
+import "jvmgo/ch11/instructions/base"
+import "jvmgo/ch11/rtda"
 
 // Convert int to byte
 type I2B struct{ base.NoOperandsInstruction }

@@ -1,7 +1,7 @@
 package rtda
 
 import "math"
-import "jvmgo/ch10/rtda/heap"
+import "jvmgo/ch11/rtda/heap"
 
 type OperandStack struct {
 	size  uint
@@ -99,4 +99,9 @@ func (self *OperandStack) PushBoolean(val bool) {
 }
 func (self *OperandStack) PopBoolean() bool {
 	return self.PopInt() == 1
+}
+
+// todo
+func NewOperandStack(maxStack uint) *OperandStack {
+	return newOperandStack(maxStack)
 }

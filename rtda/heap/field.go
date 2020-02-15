@@ -1,6 +1,6 @@
 package heap
 
-import "jvmgo/ch10/classfile"
+import "jvmgo/ch11/classfile"
 
 type Field struct {
 	ClassMember
@@ -42,4 +42,10 @@ func (self *Field) SlotId() uint {
 }
 func (self *Field) isLongOrDouble() bool {
 	return self.descriptor == "J" || self.descriptor == "D"
+}
+
+// reflection
+func (self *Field) Type() *Class {
+	className := toClassName(self.descriptor)
+	return self.class.loader.LoadClass(className)
 }

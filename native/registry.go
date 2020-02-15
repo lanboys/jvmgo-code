@@ -1,6 +1,6 @@
 package native
 
-import "jvmgo/ch10/rtda"
+import "jvmgo/ch11/rtda"
 
 type NativeMethod func(frame *rtda.Frame)
 
@@ -20,8 +20,10 @@ func FindNativeMethod(className, methodName, methodDescriptor string) NativeMeth
 	if method, ok := registry[key]; ok {
 		return method
 	}
-	if methodDescriptor == "()V" && methodName == "registerNatives" {
-		return emptyNativeMethod
+	if methodDescriptor == "()V" {
+		if methodName == "registerNatives" || methodName == "initIDs" {
+			return emptyNativeMethod
+		}
 	}
 	return nil
 }

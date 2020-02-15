@@ -1,8 +1,8 @@
 package constants
 
-import "jvmgo/ch10/instructions/base"
-import "jvmgo/ch10/rtda"
-import "jvmgo/ch10/rtda/heap"
+import "jvmgo/ch11/instructions/base"
+import "jvmgo/ch11/rtda"
+import "jvmgo/ch11/rtda/heap"
 
 // Push item from run-time constant pool
 type LDC struct{ base.Index8Instruction }

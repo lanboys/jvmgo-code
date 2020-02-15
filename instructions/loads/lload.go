@@ -1,7 +1,7 @@
 package loads
 
-import "jvmgo/ch10/instructions/base"
-import "jvmgo/ch10/rtda"
+import "jvmgo/ch11/instructions/base"
+import "jvmgo/ch11/rtda"
 
 // Load long from local variable
 type LLOAD struct{ base.Index8Instruction }

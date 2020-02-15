@@ -1,7 +1,7 @@
 package rtda
 
 import "math"
-import "jvmgo/ch10/rtda/heap"
+import "jvmgo/ch11/rtda/heap"
 
 type LocalVars []Slot
 
@@ -62,4 +62,7 @@ func (self LocalVars) SetSlot(index uint, slot Slot) {
 
 func (self LocalVars) GetThis() *heap.Object {
 	return self.GetRef(0)
+}
+func (self LocalVars) GetBoolean(index uint) bool {
+	return self.GetInt(index) == 1
 }

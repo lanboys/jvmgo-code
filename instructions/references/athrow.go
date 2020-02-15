@@ -1,9 +1,9 @@
 package references
 
 import "reflect"
-import "jvmgo/ch10/instructions/base"
-import "jvmgo/ch10/rtda"
-import "jvmgo/ch10/rtda/heap"
+import "jvmgo/ch11/instructions/base"
+import "jvmgo/ch11/rtda"
+import "jvmgo/ch11/rtda/heap"
 
 // Throw exception or error
 type ATHROW struct{ base.NoOperandsInstruction }

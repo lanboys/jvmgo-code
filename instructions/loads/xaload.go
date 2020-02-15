@@ -1,8 +1,8 @@
 package loads
 
-import "jvmgo/ch10/instructions/base"
-import "jvmgo/ch10/rtda"
-import "jvmgo/ch10/rtda/heap"
+import "jvmgo/ch11/instructions/base"
+import "jvmgo/ch11/rtda"
+import "jvmgo/ch11/rtda/heap"
 
 // Load reference from array
 type AALOAD struct{ base.NoOperandsInstruction }
