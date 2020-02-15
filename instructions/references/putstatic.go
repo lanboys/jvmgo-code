@@ -1,8 +1,8 @@
 package references
 
-import "jvmgo/ch06/instructions/base"
-import "jvmgo/ch06/rtda"
-import "jvmgo/ch06/rtda/heap"
+import "jvmgo/ch07/instructions/base"
+import "jvmgo/ch07/rtda"
+import "jvmgo/ch07/rtda/heap"
 
 // Set static field in class
 type PUT_STATIC struct{ base.Index16Instruction }
@@ -14,7 +14,11 @@ func (self *PUT_STATIC) Execute(frame *rtda.Frame) {
 	fieldRef := cp.GetConstant(self.Index).(*heap.FieldRef)
 	field := fieldRef.ResolvedField()
 	class := field.Class()
-	// todo: init class
+	if !class.InitStarted() {
+		frame.RevertNextPC()
+		base.InitClass(frame.Thread(), class)
+		return
+	}
 
 	if !field.IsStatic() {
 		panic("java.lang.IncompatibleClassChangeError")

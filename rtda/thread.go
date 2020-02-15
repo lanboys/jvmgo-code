@@ -1,6 +1,6 @@
 package rtda
 
-import "jvmgo/ch06/rtda/heap"
+import "jvmgo/ch07/rtda/heap"
 
 /*
 JVM
@@ -39,6 +39,13 @@ func (self *Thread) PopFrame() *Frame {
 
 func (self *Thread) CurrentFrame() *Frame {
 	return self.stack.top()
+}
+func (self *Thread) TopFrame() *Frame {
+	return self.stack.top()
+}
+
+func (self *Thread) IsStackEmpty() bool {
+	return self.stack.isEmpty()
 }
 
 func (self *Thread) NewFrame(method *heap.Method) *Frame {
