@@ -1,8 +1,8 @@
 package references
 
-import "jvmgo/ch07/instructions/base"
-import "jvmgo/ch07/rtda"
-import "jvmgo/ch07/rtda/heap"
+import "jvmgo/ch09/instructions/base"
+import "jvmgo/ch09/rtda"
+import "jvmgo/ch09/rtda/heap"
 
 // Get static field from class
 type GET_STATIC struct{ base.Index16Instruction }

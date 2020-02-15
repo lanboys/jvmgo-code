@@ -1,9 +1,9 @@
 package references
 
 import "fmt"
-import "jvmgo/ch08/instructions/base"
-import "jvmgo/ch08/rtda"
-import "jvmgo/ch08/rtda/heap"
+import "jvmgo/ch09/instructions/base"
+import "jvmgo/ch09/rtda"
+import "jvmgo/ch09/rtda/heap"
 
 // Invoke instance method; dispatch based on class
 type INVOKE_VIRTUAL struct{ base.Index16Instruction }
@@ -34,7 +34,9 @@ func (self *INVOKE_VIRTUAL) Execute(frame *rtda.Frame) {
 		ref.Class() != currentClass &&
 		!ref.Class().IsSubClassOf(currentClass) {
 
-		panic("java.lang.IllegalAccessError")
+		if !(ref.Class().IsArray() && resolvedMethod.Name() == "clone") {
+			panic("java.lang.IllegalAccessError")
+		}
 	}
 
 	methodToBeInvoked := heap.LookupMethodInClass(ref.Class(),

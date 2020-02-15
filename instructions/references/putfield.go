@@ -1,8 +1,8 @@
 package references
 
-import "jvmgo/ch06/instructions/base"
-import "jvmgo/ch06/rtda"
-import "jvmgo/ch06/rtda/heap"
+import "jvmgo/ch09/instructions/base"
+import "jvmgo/ch09/rtda"
+import "jvmgo/ch09/rtda/heap"
 
 // Set field in object
 type PUT_FIELD struct{ base.Index16Instruction }

@@ -1,7 +1,7 @@
 package references
 
-import "jvmgo/ch08/instructions/base"
-import "jvmgo/ch08/rtda"
+import "jvmgo/ch09/instructions/base"
+import "jvmgo/ch09/rtda"
 
 // Get length of array
 type ARRAY_LENGTH struct{ base.NoOperandsInstruction }

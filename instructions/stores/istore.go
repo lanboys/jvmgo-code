@@ -1,7 +1,7 @@
 package stores
 
-import "jvmgo/ch05/instructions/base"
-import "jvmgo/ch05/rtda"
+import "jvmgo/ch09/instructions/base"
+import "jvmgo/ch09/rtda"
 
 // Store int into local variable
 type ISTORE struct{ base.Index8Instruction }
